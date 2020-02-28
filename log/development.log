@@ -1,0 +1,1386 @@
+  [1m[35m (22.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (7.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (4.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7523680634770071135)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20190720181413)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190720181413"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddColumnsToUsers (20190720181926)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.2ms)[0m  [1m[35mALTER TABLE "users" ADD "description" text[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "age" integer[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "marital_status" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "anything_exciting" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "long_term" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "open_anything" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "short_term" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "undecided" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "virtual" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "height" integer[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "users" ADD "hair_color" character varying[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" ADD "eye_color" character varying[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "users" ADD "smoker" character varying[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "users" ADD "anything_goes" character varying[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "dominated" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "dominate" character varying[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "users" ADD "normal" character varying[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "users" ADD "threesome" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "secret" character varying[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "users" ADD "active" character varying[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "users" ADD "shy" character varying[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "users" ADD "sociable" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "fun" character varying[0m
+  [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE "users" ADD "generous" character varying[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "users" ADD "relaxed" character varying[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "users" ADD "moody" character varying[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "users" ADD "modest" character varying[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "users" ADD "sensitive" character varying[0m
+  [1m[35m (10.2ms)[0m  [1m[35mALTER TABLE "users" ADD "photos" text[] DEFAULT '{}'[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190720181926"]]
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddCityToUsers (20190720183550)
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "city" character varying[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190720183550"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeSexualToUsers (20190720183802)
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190720183802"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUsernameToUsers (20190720190733)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "users" ADD "username" character varying[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190720190733"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddNewpersonalitiesToUsers (20190721165000)
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "independent" character varying[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "mature" character varying[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "outgoing" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "self_confident" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "cultivated" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "reliable" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "spiritual" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "imaginative" character varying[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "users" ADD "sophisticated" character varying[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190721165000"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddNewsexualsToUsers (20190721170005)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "being_blinded" character varying[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" ADD "willing_experiment" character varying[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" ADD "costume" character varying[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" ADD "role_playing" character varying[0m
+  [1m[35m (3.2ms)[0m  [1m[35mALTER TABLE "users" ADD "using_sex_toys" character varying[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "users" ADD "unusual_places" character varying[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" ADD "being_watched" character varying[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190721170005"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddSportsToUsers (20190721171544)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "aerobics" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "golf" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "martial_arts" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "soccer" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "walking" character varying[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "rugby" character varying[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "swimming" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "baseball" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "cycling" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "running" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "tennis" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "weight" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "basketball" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "skiing" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "volleyball" character varying[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190721171544"]]
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddHobbiesToUsers (20190721172652)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "arts" character varying[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "cooking" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "hiking" character varying[0m
+  [1m[35m (5.6ms)[0m  [1m[35mALTER TABLE "users" ADD "networking" character varying[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "video_games" character varying[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "book" character varying[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "dining_out" character varying[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "movies" character varying[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "nightclubs" character varying[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "religion" character varying[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "charity" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "museum" character varying[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "shopping" character varying[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "wine" character varying[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "coffee" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "gardening" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "pets" character varying[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190721172652"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddGenderToUsers (20190730080046)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "gender" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "country" character varying[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190730080046"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTemporaryLists (20190807103606)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "temporary_lists" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190807103606"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddColumnsToTemporarylists (20190807103648)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.1ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "gender" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "country" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "arts" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "cooking" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "hiking" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "networking" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "video_games" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "book" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "dining_out" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "movies" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "nightclubs" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "religion" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "charity" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "museum" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "shopping" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "wine" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "coffee" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "gardening" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "pets" character varying[0m
+  [1m[35m (1.9ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "aerobics" character varying[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "golf" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "martial_arts" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "soccer" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "walking" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "rugby" character varying[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "swimming" character varying[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "baseball" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "cycling" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "running" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "tennis" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "weight" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "basketball" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "skiing" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "volleyball" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "being_blinded" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "willing_experiment" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "costume" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "role_playing" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "using_sex_toys" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "unusual_places" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "being_watched" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "independent" character varying[0m
+  [1m[35m (1.9ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "mature" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "outgoing" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "self_confident" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "cultivated" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "reliable" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "spiritual" character varying[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "imaginative" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "sophisticated" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "username" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "city" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "description" text[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "age" integer[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "marital_status" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "anything_exciting" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "long_term" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "open_anything" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "short_term" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "undecided" character varying[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "virtual" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "height" integer[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "hair_color" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "eye_color" character varying[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "smoker" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "anything_goes" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "dominated" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "dominate" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "normal" character varying[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "threesome" character varying[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "secret" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "active" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "shy" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "sociable" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "fun" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "generous" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "relaxed" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "moody" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "modest" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "sensitive" character varying[0m
+  [1m[35m (13.1ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "photos" text[] DEFAULT '{}'[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190807103648"]]
+  [1m[35m (3.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-12-10 06:51:34.728783"], ["updated_at", "2019-12-10 06:51:34.728783"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7523680634770071135)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7523680634770071135)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddEthnicitiesToUsers (20191210065510)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" ADD "ethnicity" character varying[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191210065510"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7523680634770071135)[0m
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7523680634770071135)[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddEthnicitiesToTemporaryLists (20191210065533)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "ethnicity" character varying[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191210065533"]]
+  [1m[35m (7.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7523680634770071135)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7523680634770071135)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddFiguresToUsers (20191210065638)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "ethnicity" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7523680634770071135)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7523680634770071135)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddFiguresToUsers (20191210065755)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "figure" character varying[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191210065755"]]
+  [1m[35m (7.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddFiguresToTemporaryLists (20191210065804)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "figure" character varying[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191210065804"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(7523680634770071135)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7523680634770071135)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddOccupationsToTemporaryLists (20191210065831)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "temporary_lists" ADD "occupation" character varying[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191210065831"]]
+  [1m[35m (7.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddOccupationsToUsers (20191210065857)
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "users" ADD "occupation" character varying[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191210065857"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(7523680634770071135)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7523680634770071135)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeHeightToString (20191210101933)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (15.7ms)[0m  [1m[35mALTER TABLE "users" ALTER COLUMN "height" TYPE character varying[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191210101933"]]
+  [1m[35m (3.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7523680634770071135)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7523680634770071135)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeHeightTemporarylistsToString (20191210102125)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (16.2ms)[0m  [1m[35mALTER TABLE "temporary_lists" ALTER COLUMN "height" TYPE character varying[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191210102125"]]
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7523680634770071135)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/memberslist?zipcode=10044" for 127.0.0.1 at 2019-12-10 05:57:10 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#zip_codes as */*
+  Parameters: {"zipcode"=>"10044"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY RANDOM()[0m
+Completed 500 Internal Server Error in 6196ms (ActiveRecord: 6.3ms)
+
+
+  
+NoMethodError (undefined method `figure' for nil:NilClass):
+  
+app/controllers/users_controller.rb:31:in `block (2 levels) in zip_codes'
+app/controllers/users_controller.rb:28:in `times'
+app/controllers/users_controller.rb:28:in `block in zip_codes'
+app/controllers/users_controller.rb:27:in `each'
+app/controllers/users_controller.rb:27:in `zip_codes'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started POST "/memberslist?zipcode=10025" for 127.0.0.1 at 2019-12-12 08:22:38 -0500
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#zip_codes as */*
+  Parameters: {"zipcode"=>"10025"}
+  [1m[36mUser Load (5.0ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY RANDOM()[0m
+Completed 500 Internal Server Error in 7512ms (ActiveRecord: 12.8ms)
+
+
+  
+NoMethodError (undefined method `figure' for nil:NilClass):
+  
+app/controllers/users_controller.rb:32:in `block (2 levels) in zip_codes'
+app/controllers/users_controller.rb:28:in `times'
+app/controllers/users_controller.rb:28:in `block in zip_codes'
+app/controllers/users_controller.rb:27:in `each'
+app/controllers/users_controller.rb:27:in `zip_codes'
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started POST "/memberslist?zipcode=10025" for 127.0.0.1 at 2019-12-12 08:25:54 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#zip_codes as */*
+  Parameters: {"zipcode"=>"10025"}
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY RANDOM()[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.454885"], ["updated_at", "2019-12-12 13:25:57.454885"], ["gender", "Woman"], ["country", "USA"], ["username", "noravalentina"], ["city", "NEW YORK"], ["age", 29], ["marital_status", "---"], ["height", "---"], ["hair_color", "---"], ["eye_color", "---"], ["smoker", "No"], ["ethnicity", "---"], ["figure", "---"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "independent", "self_confident", "reliable", "sophisticated", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "anything_goes", "sociable", "fun", "generous", "photos", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.462239"], ["updated_at", "2019-12-12 13:25:57.462239"], ["gender", "Woman"], ["country", "USA"], ["independent", "Independent"], ["self_confident", "Self-confident"], ["reliable", "Reliable"], ["sophisticated", "Sophisticated"], ["username", "sashiminyc"], ["city", "NEW YORK"], ["age", 49], ["marital_status", "Separated"], ["height", "5' 10''"], ["hair_color", "Brown"], ["eye_color", "Black"], ["smoker", "No"], ["anything_goes", "Anything goes"], ["sociable", "Sociable"], ["fun", "Fun"], ["generous", "Generous"], ["photos", "{https://www.gleeden.com/book/f/469/sngyEor1KrG709uUH7Zr555fe2afc8d3d555fe2afc8d74/public/1735567913555fe594edf30779740235.jpeg,https://www.gleeden.com/book/f/469/sngyEor1KrG709uUH7Zr555fe2afc8d3d555fe2afc8d74/public/19251050415561e5e1e2e60281478860.jpeg}"], ["ethnicity", "Asian"], ["figure", "Slim"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "cooking", "hiking", "dining_out", "movies", "nightclubs", "museum", "wine", "coffee", "gardening", "walking", "independent", "cultivated", "reliable", "username", "city", "description", "age", "marital_status", "undecided", "height", "hair_color", "eye_color", "smoker", "secret", "active", "generous", "relaxed", "sensitive", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32, $33, $34) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.468841"], ["updated_at", "2019-12-12 13:25:57.468841"], ["gender", "Woman"], ["country", "USA"], ["cooking", "Cooking / Baking"], ["hiking", "Hiking"], ["dining_out", "Dining out / Hosting diners"], ["movies", "Movies / Cinema"], ["nightclubs", "Nightclubs / Dancing"], ["museum", "Museums / Galleries"], ["wine", "Wine or food tasting"], ["coffee", "Coffee and conversation"], ["gardening", "Gardening / Landscaping"], ["walking", "Walking / Hiking"], ["independent", "Independent"], ["cultivated", "Cultivated"], ["reliable", "Reliable"], ["username", "Nyc1712"], ["city", "NEW YORK"], ["description", "\" Je suis une française de New York et aimerais chatter avec des francophones ou des Européens.\nJe rentre régulièrement en france (Paris et côte atlantique). \""], ["age", 49], ["marital_status", "Married"], ["undecided", "Undecided"], ["height", "5' 5''"], ["hair_color", "Brown"], ["eye_color", "Brown"], ["smoker", "No"], ["secret", "I'd rather not say, that's private"], ["active", "Active"], ["generous", "Generous"], ["relaxed", "Relaxed"], ["sensitive", "Sensitive"], ["ethnicity", "Caucasian"], ["figure", "Curvy"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "cooking", "dining_out", "nightclubs", "museum", "shopping", "wine", "coffee", "aerobics", "independent", "imaginative", "sophisticated", "username", "city", "age", "marital_status", "undecided", "height", "hair_color", "eye_color", "smoker", "active", "sociable", "relaxed", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.476143"], ["updated_at", "2019-12-12 13:25:57.476143"], ["gender", "Woman"], ["country", "USA"], ["cooking", "Cooking / Baking"], ["dining_out", "Dining out / Hosting diners"], ["nightclubs", "Nightclubs / Dancing"], ["museum", "Museums / Galleries"], ["shopping", "Shopping / Antiques"], ["wine", "Wine or food tasting"], ["coffee", "Coffee and conversation"], ["aerobics", "Aerobics"], ["independent", "Independent"], ["imaginative", "Imaginative"], ["sophisticated", "Sophisticated"], ["username", "Danga1"], ["city", "NEW YORK"], ["age", 48], ["marital_status", "Married"], ["undecided", "Undecided"], ["height", "5' 5''"], ["hair_color", "Black"], ["eye_color", "Brown"], ["smoker", "No"], ["active", "Active"], ["sociable", "Sociable"], ["relaxed", "Relaxed"], ["ethnicity", "---"], ["figure", "I'd rather not say"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "cooking", "book", "dining_out", "movies", "nightclubs", "religion", "charity", "museum", "coffee", "pets", "aerobics", "walking", "independent", "mature", "outgoing", "cultivated", "reliable", "spiritual", "imaginative", "username", "city", "age", "marital_status", "anything_exciting", "short_term", "undecided", "height", "hair_color", "eye_color", "smoker", "secret", "active", "sociable", "generous", "relaxed", "modest", "sensitive", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32, $33, $34, $35, $36, $37, $38, $39, $40, $41, $42, $43) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.483336"], ["updated_at", "2019-12-12 13:25:57.483336"], ["gender", "Woman"], ["country", "USA"], ["cooking", "Cooking / Baking"], ["book", "Book or discussion clubs"], ["dining_out", "Dining out / Hosting diners"], ["movies", "Movies / Cinema"], ["nightclubs", "Nightclubs / Dancing"], ["religion", "Religion / Spirituality"], ["charity", "Charities / Organisations"], ["museum", "Museums / Galleries"], ["coffee", "Coffee and conversation"], ["pets", "Pets / Animals"], ["aerobics", "Aerobics"], ["walking", "Walking / Hiking"], ["independent", "Independent"], ["mature", "Mature"], ["outgoing", "Outgoing"], ["cultivated", "Cultivated"], ["reliable", "Reliable"], ["spiritual", "Spiritual"], ["imaginative", "Imaginative"], ["username", "Crushes"], ["city", "NEW YORK"], ["age", 39], ["marital_status", "Separated"], ["anything_exciting", "Anything exciting"], ["short_term", "Short term"], ["undecided", "Undecided"], ["height", "---"], ["hair_color", "Brown"], ["eye_color", "Brown"], ["smoker", "No"], ["secret", "I'd rather not say, that's private"], ["active", "Active"], ["sociable", "Sociable"], ["generous", "Generous"], ["relaxed", "Relaxed"], ["modest", "Modest"], ["sensitive", "Sensitive"], ["ethnicity", "---"], ["figure", "---"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.491354"], ["updated_at", "2019-12-12 13:25:57.491354"], ["gender", "Woman"], ["country", "USA"], ["username", "truluv4uuu"], ["city", "NEW YORK"], ["age", 31], ["marital_status", "---"], ["height", "---"], ["hair_color", "---"], ["eye_color", "---"], ["smoker", "No"], ["ethnicity", "---"], ["figure", "---"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "arts", "cooking", "dining_out", "movies", "nightclubs", "museum", "wine", "tennis", "skiing", "self_confident", "cultivated", "imaginative", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "active", "sociable", "fun", "relaxed", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.498087"], ["updated_at", "2019-12-12 13:25:57.498087"], ["gender", "Woman"], ["country", "USA"], ["arts", "Arts and crafts"], ["cooking", "Cooking / Baking"], ["dining_out", "Dining out / Hosting diners"], ["movies", "Movies / Cinema"], ["nightclubs", "Nightclubs / Dancing"], ["museum", "Museums / Galleries"], ["wine", "Wine or food tasting"], ["tennis", "Tennis / Racquet sports"], ["skiing", "Skiing / Snowboarding"], ["self_confident", "Self-confident"], ["cultivated", "Cultivated"], ["imaginative", "Imaginative"], ["username", "elene"], ["city", "NEW YORK"], ["age", 36], ["marital_status", "---"], ["height", "5' 6''"], ["hair_color", "Brown"], ["eye_color", "Brown"], ["smoker", "No"], ["active", "Active"], ["sociable", "Sociable"], ["fun", "Fun"], ["relaxed", "Relaxed"], ["ethnicity", "Asian"], ["figure", "Slim"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.505086"], ["updated_at", "2019-12-12 13:25:57.505086"], ["gender", "Woman"], ["country", "USA"], ["username", "Unhappywife"], ["city", "NEW YORK"], ["age", 39], ["marital_status", "---"], ["height", "---"], ["hair_color", "---"], ["eye_color", "---"], ["smoker", "No"], ["ethnicity", "---"], ["figure", "---"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.511083"], ["updated_at", "2019-12-12 13:25:57.511083"], ["gender", "Woman"], ["country", "USA"], ["username", "sdj81"], ["city", "NEW YORK"], ["age", 38], ["marital_status", "---"], ["height", "---"], ["hair_color", "---"], ["eye_color", "---"], ["smoker", "No"], ["ethnicity", "---"], ["figure", "---"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.516958"], ["updated_at", "2019-12-12 13:25:57.516958"], ["gender", "Woman"], ["country", "USA"], ["username", "nathaliemade"], ["city", "NEW YORK"], ["age", 54], ["marital_status", "---"], ["height", "---"], ["hair_color", "---"], ["eye_color", "---"], ["smoker", "No"], ["ethnicity", "---"], ["figure", "---"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "hiking", "dining_out", "movies", "museum", "wine", "walking", "swimming", "tennis", "skiing", "independent", "cultivated", "imaginative", "sophisticated", "username", "city", "description", "age", "marital_status", "undecided", "height", "hair_color", "eye_color", "smoker", "secret", "active", "fun", "generous", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32, $33) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.521635"], ["updated_at", "2019-12-12 13:25:57.521635"], ["gender", "Woman"], ["country", "USA"], ["hiking", "Hiking"], ["dining_out", "Dining out / Hosting diners"], ["movies", "Movies / Cinema"], ["museum", "Museums / Galleries"], ["wine", "Wine or food tasting"], ["walking", "Walking / Hiking"], ["swimming", "Swimming or diving"], ["tennis", "Tennis / Racquet sports"], ["skiing", "Skiing / Snowboarding"], ["independent", "Independent"], ["cultivated", "Cultivated"], ["imaginative", "Imaginative"], ["sophisticated", "Sophisticated"], ["username", "NewChapterNell"], ["city", "NEW YORK"], ["description", "\" Interested in going out and having fun, maybe making a friend. I have a lot to say, but right now I'd rather sit back and listen. Thinking this might be better than a bar stool :) \""], ["age", 52], ["marital_status", "Married"], ["undecided", "Undecided"], ["height", "5' 5''"], ["hair_color", "Black"], ["eye_color", "Brown"], ["smoker", "No"], ["secret", "I'd rather not say, that's private"], ["active", "Active"], ["fun", "Fun"], ["generous", "Generous"], ["ethnicity", "Caucasian"], ["figure", "Athletic"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "arts", "cooking", "networking", "dining_out", "movies", "charity", "museum", "wine", "coffee", "golf", "martial_arts", "independent", "mature", "outgoing", "self_confident", "cultivated", "reliable", "spiritual", "imaginative", "sophisticated", "username", "city", "age", "marital_status", "open_anything", "height", "hair_color", "eye_color", "smoker", "secret", "active", "shy", "sociable", "fun", "generous", "relaxed", "moody", "modest", "sensitive", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32, $33, $34, $35, $36, $37, $38, $39, $40, $41, $42, $43, $44, $45) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.527120"], ["updated_at", "2019-12-12 13:25:57.527120"], ["gender", "Woman"], ["country", "USA"], ["arts", "Arts and crafts"], ["cooking", "Cooking / Baking"], ["networking", "Networking / Socialising"], ["dining_out", "Dining out / Hosting diners"], ["movies", "Movies / Cinema"], ["charity", "Charities / Organisations"], ["museum", "Museums / Galleries"], ["wine", "Wine or food tasting"], ["coffee", "Coffee and conversation"], ["golf", "Golf"], ["martial_arts", "Martial arts"], ["independent", "Independent"], ["mature", "Mature"], ["outgoing", "Outgoing"], ["self_confident", "Self-confident"], ["cultivated", "Cultivated"], ["reliable", "Reliable"], ["spiritual", "Spiritual"], ["imaginative", "Imaginative"], ["sophisticated", "Sophisticated"], ["username", "selsha"], ["city", "NEW YORK"], ["age", 33], ["marital_status", "Single"], ["open_anything", "Open to anything"], ["height", "---"], ["hair_color", "---"], ["eye_color", "---"], ["smoker", "No"], ["secret", "I'd rather not say, that's private"], ["active", "Active"], ["shy", "Shy"], ["sociable", "Sociable"], ["fun", "Fun"], ["generous", "Generous"], ["relaxed", "Relaxed"], ["moody", "Moody"], ["modest", "Modest"], ["sensitive", "Sensitive"], ["ethnicity", "---"], ["figure", "---"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "arts", "cooking", "hiking", "dining_out", "movies", "charity", "museum", "shopping", "wine", "gardening", "pets", "aerobics", "golf", "soccer", "walking", "swimming", "baseball", "cycling", "running", "tennis", "basketball", "skiing", "volleyball", "independent", "mature", "outgoing", "self_confident", "cultivated", "reliable", "spiritual", "sophisticated", "username", "city", "description", "age", "marital_status", "anything_exciting", "height", "hair_color", "eye_color", "smoker", "secret", "active", "shy", "sociable", "fun", "generous", "relaxed", "modest", "sensitive", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32, $33, $34, $35, $36, $37, $38, $39, $40, $41, $42, $43, $44, $45, $46, $47, $48, $49, $50, $51, $52, $53, $54, $55, $56) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.532110"], ["updated_at", "2019-12-12 13:25:57.532110"], ["gender", "Woman"], ["country", "USA"], ["arts", "Arts and crafts"], ["cooking", "Cooking / Baking"], ["hiking", "Hiking"], ["dining_out", "Dining out / Hosting diners"], ["movies", "Movies / Cinema"], ["charity", "Charities / Organisations"], ["museum", "Museums / Galleries"], ["shopping", "Shopping / Antiques"], ["wine", "Wine or food tasting"], ["gardening", "Gardening / Landscaping"], ["pets", "Pets / Animals"], ["aerobics", "Aerobics"], ["golf", "Golf"], ["soccer", "Soccer / Football"], ["walking", "Walking / Hiking"], ["swimming", "Swimming or diving"], ["baseball", "Baseball"], ["cycling", "Cycling"], ["running", "Running / Cardio"], ["tennis", "Tennis / Racquet sports"], ["basketball", "Basketball"], ["skiing", "Skiing / Snowboarding"], ["volleyball", "Volleyball"], ["independent", "Independent"], ["mature", "Mature"], ["outgoing", "Outgoing"], ["self_confident", "Self-confident"], ["cultivated", "Cultivated"], ["reliable", "Reliable"], ["spiritual", "Spiritual"], ["sophisticated", "Sophisticated"], ["username", "pink1stax"], ["city", "NEW YORK"], ["description", "\" Sometimes people say life is too short so have fun but to me, I say life is too precious and no matter how long or little that is, just leave the footprint of that in a home, a home of value where you will be remembered or at least where you will make a positive change in the lives of those in that home. I'm not getting any younger and the sun of life is gradually moving from one spot to the other, therefore, its time for me as a woman to define this stage of my life by finding the other half who completes me. I'm energetic and vibrant, responsible, sociable and very down to earth, a simple woman whose heart beats for the simple things in life yet I'm eloquent and elegant in my own ways. The man that I seek is one who values family and friendship, one who is responsible, humble in his ways and knows exactly what he wants at this stage of his life. \""], ["age", 37], ["marital_status", "Single"], ["anything_exciting", "Anything exciting"], ["height", "5' 7''"], ["hair_color", "Black"], ["eye_color", "Brown"], ["smoker", "No"], ["secret", "I'd rather not say, that's private"], ["active", "Active"], ["shy", "Shy"], ["sociable", "Sociable"], ["fun", "Fun"], ["generous", "Generous"], ["relaxed", "Relaxed"], ["modest", "Modest"], ["sensitive", "Sensitive"], ["ethnicity", "Caucasian"], ["figure", "Curvy"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "arts", "cooking", "networking", "video_games", "book", "dining_out", "movies", "nightclubs", "religion", "museum", "shopping", "wine", "coffee", "gardening", "pets", "golf", "soccer", "walking", "swimming", "baseball", "cycling", "basketball", "skiing", "volleyball", "being_blinded", "willing_experiment", "unusual_places", "independent", "mature", "outgoing", "self_confident", "imaginative", "username", "city", "description", "age", "marital_status", "anything_exciting", "open_anything", "undecided", "virtual", "height", "hair_color", "eye_color", "smoker", "active", "sociable", "generous", "relaxed", "modest", "sensitive", "photos", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32, $33, $34, $35, $36, $37, $38, $39, $40, $41, $42, $43, $44, $45, $46, $47, $48, $49, $50, $51, $52, $53, $54, $55, $56, $57, $58) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.537959"], ["updated_at", "2019-12-12 13:25:57.537959"], ["gender", "Woman"], ["country", "USA"], ["arts", "Arts and crafts"], ["cooking", "Cooking / Baking"], ["networking", "Networking / Socialising"], ["video_games", "Video games"], ["book", "Book or discussion clubs"], ["dining_out", "Dining out / Hosting diners"], ["movies", "Movies / Cinema"], ["nightclubs", "Nightclubs / Dancing"], ["religion", "Religion / Spirituality"], ["museum", "Museums / Galleries"], ["shopping", "Shopping / Antiques"], ["wine", "Wine or food tasting"], ["coffee", "Coffee and conversation"], ["gardening", "Gardening / Landscaping"], ["pets", "Pets / Animals"], ["golf", "Golf"], ["soccer", "Soccer / Football"], ["walking", "Walking / Hiking"], ["swimming", "Swimming or diving"], ["baseball", "Baseball"], ["cycling", "Cycling"], ["basketball", "Basketball"], ["skiing", "Skiing / Snowboarding"], ["volleyball", "Volleyball"], ["being_blinded", "Being blind folded"], ["willing_experiment", "Willing to experiment"], ["unusual_places", "Sex in unusual places"], ["independent", "Independent"], ["mature", "Mature"], ["outgoing", "Outgoing"], ["self_confident", "Self-confident"], ["imaginative", "Imaginative"], ["username", "mary4luv101"], ["city", "NEW YORK"], ["description", "\" i am good looking and sexy \""], ["age", 38], ["marital_status", "Single"], ["anything_exciting", "Anything exciting"], ["open_anything", "Open to anything"], ["undecided", "Undecided"], ["virtual", "Virtual"], ["height", "5' 7''"], ["hair_color", "Blond"], ["eye_color", "Brown"], ["smoker", "No"], ["active", "Active"], ["sociable", "Sociable"], ["generous", "Generous"], ["relaxed", "Relaxed"], ["modest", "Modest"], ["sensitive", "Sensitive"], ["photos", "{https://www.gleeden.com/book/f/042/72QVhaUoNnRfGBfNQoOg4d9ce54411b3f4d9ce54411b45/public/16069818674d9d204dd4562204964865.jpeg,https://www.gleeden.com/book/f/042/72QVhaUoNnRfGBfNQoOg4d9ce54411b3f4d9ce54411b45/public/13721154884d9d20cfe3114627189166.jpeg,https://www.gleeden.com/book/f/042/72QVhaUoNnRfGBfNQoOg4d9ce54411b3f4d9ce54411b45/public/4458798814d9d215cc7bb2225774756.jpeg,https://www.gleeden.com/book/f/042/72QVhaUoNnRfGBfNQoOg4d9ce54411b3f4d9ce54411b45/public/16491000404d9d21c4b8056392693680.jpeg}"], ["ethnicity", "Caucasian"], ["figure", "Athletic"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "arts", "cooking", "aerobics", "cycling", "running", "willing_experiment", "mature", "outgoing", "cultivated", "username", "city", "description", "age", "marital_status", "anything_exciting", "long_term", "open_anything", "short_term", "undecided", "height", "hair_color", "eye_color", "smoker", "anything_goes", "active", "shy", "modest", "sensitive", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32, $33, $34) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.543059"], ["updated_at", "2019-12-12 13:25:57.543059"], ["gender", "Woman"], ["country", "USA"], ["arts", "Arts and crafts"], ["cooking", "Cooking / Baking"], ["aerobics", "Aerobics"], ["cycling", "Cycling"], ["running", "Running / Cardio"], ["willing_experiment", "Willing to experiment"], ["mature", "Mature"], ["outgoing", "Outgoing"], ["cultivated", "Cultivated"], ["username", "touchofhoeny"], ["city", "NEW YORK"], ["description", "\" Young and married, sexually frustrated. Seeking someone gentle, emotionally mature, educated, who knows how to please a lady. If you are not from ny but visit often a plus. \""], ["age", 42], ["marital_status", "Married"], ["anything_exciting", "Anything exciting"], ["long_term", "Long term"], ["open_anything", "Open to anything"], ["short_term", "Short term"], ["undecided", "Undecided"], ["height", "5' 1''"], ["hair_color", "Brown"], ["eye_color", "Brown"], ["smoker", "No"], ["anything_goes", "Anything goes"], ["active", "Active"], ["shy", "Shy"], ["modest", "Modest"], ["sensitive", "Sensitive"], ["ethnicity", "Caucasian"], ["figure", "Athletic"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.547777"], ["updated_at", "2019-12-12 13:25:57.547777"], ["gender", "Woman"], ["country", "USA"], ["username", "sexydoreen"], ["city", "NEW YORK"], ["age", 27], ["marital_status", "---"], ["height", "---"], ["hair_color", "---"], ["eye_color", "---"], ["smoker", "No"], ["ethnicity", "---"], ["figure", "---"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "cooking", "movies", "religion", "charity", "museum", "shopping", "wine", "coffee", "gardening", "soccer", "walking", "swimming", "baseball", "basketball", "volleyball", "willing_experiment", "using_sex_toys", "independent", "mature", "outgoing", "self_confident", "cultivated", "reliable", "imaginative", "username", "city", "description", "age", "marital_status", "anything_exciting", "open_anything", "short_term", "undecided", "virtual", "height", "hair_color", "eye_color", "smoker", "anything_goes", "active", "fun", "generous", "modest", "sensitive", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32, $33, $34, $35, $36, $37, $38, $39, $40, $41, $42, $43, $44, $45, $46, $47, $48, $49, $50) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.553461"], ["updated_at", "2019-12-12 13:25:57.553461"], ["gender", "Woman"], ["country", "USA"], ["cooking", "Cooking / Baking"], ["movies", "Movies / Cinema"], ["religion", "Religion / Spirituality"], ["charity", "Charities / Organisations"], ["museum", "Museums / Galleries"], ["shopping", "Shopping / Antiques"], ["wine", "Wine or food tasting"], ["coffee", "Coffee and conversation"], ["gardening", "Gardening / Landscaping"], ["soccer", "Soccer / Football"], ["walking", "Walking / Hiking"], ["swimming", "Swimming or diving"], ["baseball", "Baseball"], ["basketball", "Basketball"], ["volleyball", "Volleyball"], ["willing_experiment", "Willing to experiment"], ["using_sex_toys", "Using sex toys"], ["independent", "Independent"], ["mature", "Mature"], ["outgoing", "Outgoing"], ["self_confident", "Self-confident"], ["cultivated", "Cultivated"], ["reliable", "Reliable"], ["imaginative", "Imaginative"], ["username", "laramorg32"], ["city", "PHILADELPHIA"], ["description", "\" My name is Lara Morgan. I am looking for a man who is looking for his life partner. I am single, no child now, sincerely seeking love and marriage with the right man. We are far apart but if you are willing to look for the right woman to be your wife, than please write to me ? I am real and do have a nice character and personality. Have a nice day. Lara. \""], ["age", 39], ["marital_status", "Single"], ["anything_exciting", "Anything exciting"], ["open_anything", "Open to anything"], ["short_term", "Short term"], ["undecided", "Undecided"], ["virtual", "Virtual"], ["height", "5' 7''"], ["hair_color", "Brown"], ["eye_color", "Blue"], ["smoker", "No"], ["anything_goes", "Anything goes"], ["active", "Active"], ["fun", "Fun"], ["generous", "Generous"], ["modest", "Modest"], ["sensitive", "Sensitive"], ["ethnicity", "Mixed race"], ["figure", "Curvy"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.559813"], ["updated_at", "2019-12-12 13:25:57.559813"], ["gender", "Woman"], ["country", "USA"], ["username", "CatelynPussy"], ["city", "PHILADELPHIA"], ["age", 28], ["marital_status", "---"], ["height", "---"], ["hair_color", "---"], ["eye_color", "---"], ["smoker", "No"], ["ethnicity", "---"], ["figure", "---"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.564511"], ["updated_at", "2019-12-12 13:25:57.564511"], ["gender", "Woman"], ["country", "USA"], ["username", "newsite"], ["city", "PHILADELPHIA"], ["age", 39], ["marital_status", "---"], ["height", "---"], ["hair_color", "---"], ["eye_color", "---"], ["smoker", "No"], ["ethnicity", "---"], ["figure", "---"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "arts", "cooking", "dining_out", "movies", "nightclubs", "shopping", "wine", "soccer", "swimming", "cycling", "running", "independent", "self_confident", "imaginative", "username", "city", "age", "marital_status", "anything_exciting", "open_anything", "height", "hair_color", "eye_color", "smoker", "anything_goes", "active", "sociable", "fun", "relaxed", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32, $33, $34, $35) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.569877"], ["updated_at", "2019-12-12 13:25:57.569877"], ["gender", "Woman"], ["country", "USA"], ["arts", "Arts and crafts"], ["cooking", "Cooking / Baking"], ["dining_out", "Dining out / Hosting diners"], ["movies", "Movies / Cinema"], ["nightclubs", "Nightclubs / Dancing"], ["shopping", "Shopping / Antiques"], ["wine", "Wine or food tasting"], ["soccer", "Soccer / Football"], ["swimming", "Swimming or diving"], ["cycling", "Cycling"], ["running", "Running / Cardio"], ["independent", "Independent"], ["self_confident", "Self-confident"], ["imaginative", "Imaginative"], ["username", "BeeZee"], ["city", "PHILADELPHIA"], ["age", 36], ["marital_status", "Married"], ["anything_exciting", "Anything exciting"], ["open_anything", "Open to anything"], ["height", "5' 5''"], ["hair_color", "Black"], ["eye_color", "Brown"], ["smoker", "No"], ["anything_goes", "Anything goes"], ["active", "Active"], ["sociable", "Sociable"], ["fun", "Fun"], ["relaxed", "Relaxed"], ["ethnicity", "Asian"], ["figure", "Slim"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.574810"], ["updated_at", "2019-12-12 13:25:57.574810"], ["gender", "Woman"], ["country", "USA"], ["username", "alicee66544"], ["city", "PHILADELPHIA"], ["age", 29], ["marital_status", "---"], ["height", "---"], ["hair_color", "---"], ["eye_color", "---"], ["smoker", "No"], ["ethnicity", "---"], ["figure", "---"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "book", "dining_out", "movies", "nightclubs", "charity", "museum", "wine", "pets", "soccer", "walking", "running", "being_blinded", "willing_experiment", "role_playing", "using_sex_toys", "unusual_places", "independent", "mature", "outgoing", "self_confident", "cultivated", "reliable", "spiritual", "imaginative", "sophisticated", "username", "city", "description", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "active", "sociable", "fun", "generous", "relaxed", "modest", "sensitive", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32, $33, $34, $35, $36, $37, $38, $39, $40, $41, $42, $43, $44, $45, $46, $47) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.580053"], ["updated_at", "2019-12-12 13:25:57.580053"], ["gender", "Woman"], ["country", "USA"], ["book", "Book or discussion clubs"], ["dining_out", "Dining out / Hosting diners"], ["movies", "Movies / Cinema"], ["nightclubs", "Nightclubs / Dancing"], ["charity", "Charities / Organisations"], ["museum", "Museums / Galleries"], ["wine", "Wine or food tasting"], ["pets", "Pets / Animals"], ["soccer", "Soccer / Football"], ["walking", "Walking / Hiking"], ["running", "Running / Cardio"], ["being_blinded", "Being blind folded"], ["willing_experiment", "Willing to experiment"], ["role_playing", "Role playing"], ["using_sex_toys", "Using sex toys"], ["unusual_places", "Sex in unusual places"], ["independent", "Independent"], ["mature", "Mature"], ["outgoing", "Outgoing"], ["self_confident", "Self-confident"], ["cultivated", "Cultivated"], ["reliable", "Reliable"], ["spiritual", "Spiritual"], ["imaginative", "Imaginative"], ["sophisticated", "Sophisticated"], ["username", "Lovebug12"], ["city", "PHILADELPHIA"], ["description", "\" \"Just another free spirit looking to soar\" \""], ["age", 33], ["marital_status", "Married"], ["height", "5' 4''"], ["hair_color", "Brown"], ["eye_color", "Brown"], ["smoker", "No"], ["active", "Active"], ["sociable", "Sociable"], ["fun", "Fun"], ["generous", "Generous"], ["relaxed", "Relaxed"], ["modest", "Modest"], ["sensitive", "Sensitive"], ["ethnicity", "Mixed race"], ["figure", "Slim"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "willing_experiment", "unusual_places", "independent", "mature", "outgoing", "self_confident", "imaginative", "username", "city", "description", "age", "marital_status", "anything_exciting", "open_anything", "height", "hair_color", "eye_color", "smoker", "dominated", "dominate", "modest", "sensitive", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.587159"], ["updated_at", "2019-12-12 13:25:57.587159"], ["gender", "Woman"], ["country", "USA"], ["willing_experiment", "Willing to experiment"], ["unusual_places", "Sex in unusual places"], ["independent", "Independent"], ["mature", "Mature"], ["outgoing", "Outgoing"], ["self_confident", "Self-confident"], ["imaginative", "Imaginative"], ["username", "betsyb25"], ["city", "PHILADELPHIA"], ["description", "\" Seeking a romantic and articulate partner-in-crime who is not afraid of risk-taking and would be willing to enter into a secret pact and create a world filled with desire and erotic adventure. Although I seriously have no interest in leaving my marriage, I yearn for a feeling of aliveness and excitement within. Discretion is of the utmost importance. \""], ["age", 44], ["marital_status", "Married"], ["anything_exciting", "Anything exciting"], ["open_anything", "Open to anything"], ["height", "5' 7''"], ["hair_color", "Brown"], ["eye_color", "Blue"], ["smoker", "No"], ["dominated", "Being dominated"], ["dominate", "Dominating"], ["modest", "Modest"], ["sensitive", "Sensitive"], ["ethnicity", "Caucasian"], ["figure", "Slim"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "cooking", "baseball", "basketball", "independent", "cultivated", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "secret", "photos", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.592730"], ["updated_at", "2019-12-12 13:25:57.592730"], ["gender", "Woman"], ["country", "USA"], ["cooking", "Cooking / Baking"], ["baseball", "Baseball"], ["basketball", "Basketball"], ["independent", "Independent"], ["cultivated", "Cultivated"], ["username", "lorah111"], ["city", "PHILADELPHIA"], ["age", 40], ["marital_status", "Single"], ["height", "5' 10''"], ["hair_color", "Black"], ["eye_color", "Brown"], ["smoker", "No"], ["secret", "I'd rather not say, that's private"], ["photos", "{https://www.gleeden.com/book/f/349/xDyzxSdeG0VSWSdjlSxh4cb6476fde9a04cb6476fde9db/public/10310787834cb64bd11e163163595625.jpeg}"], ["ethnicity", "Caucasian"], ["figure", "Normal"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "movies", "nightclubs", "soccer", "username", "city", "description", "age", "marital_status", "short_term", "height", "hair_color", "eye_color", "smoker", "threesome", "photos", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.597183"], ["updated_at", "2019-12-12 13:25:57.597183"], ["gender", "Woman"], ["country", "USA"], ["movies", "Movies / Cinema"], ["nightclubs", "Nightclubs / Dancing"], ["soccer", "Soccer / Football"], ["username", "wdelvalle"], ["city", "PHILADELPHIA"], ["description", "\" Am only looking for a girl to do a threesome with my boo and that's it \""], ["age", 45], ["marital_status", "Married"], ["short_term", "Short term"], ["height", "5' 4''"], ["hair_color", "Red"], ["eye_color", "Brown"], ["smoker", "No"], ["threesome", "Threesome (or more)"], ["photos", "{https://www.gleeden.com/book/f/382/ZXMH6kinC5DOmpAuuVSf539ca28996263539ca289962a8/public/799138072539ca36c1973e889876890.jpeg,https://www.gleeden.com/book/f/382/ZXMH6kinC5DOmpAuuVSf539ca28996263539ca289962a8/public/1223475853539ca2ed0b1c3323464361.jpeg}"], ["ethnicity", "Hispanic"], ["figure", "Normal"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.601992"], ["updated_at", "2019-12-12 13:25:57.601992"], ["gender", "Woman"], ["country", "USA"], ["username", "marinera2014"], ["city", "PHILADELPHIA"], ["age", 45], ["marital_status", "---"], ["height", "---"], ["hair_color", "---"], ["eye_color", "---"], ["smoker", "No"], ["ethnicity", "---"], ["figure", "---"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.606221"], ["updated_at", "2019-12-12 13:25:57.606221"], ["gender", "Woman"], ["country", "USA"], ["username", "Roboco"], ["city", "BROOKLYN"], ["age", 32], ["marital_status", "---"], ["height", "---"], ["hair_color", "---"], ["eye_color", "---"], ["smoker", "No"], ["ethnicity", "---"], ["figure", "---"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.610474"], ["updated_at", "2019-12-12 13:25:57.610474"], ["gender", "Woman"], ["country", "USA"], ["username", "Aneylaweslin"], ["city", "BROOKLYN"], ["age", 35], ["marital_status", "Single"], ["height", "5' 7''"], ["hair_color", "Black"], ["eye_color", "Green"], ["smoker", "No"], ["ethnicity", "Caucasian"], ["figure", "Athletic"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "hiking", "video_games", "movies", "shopping", "gardening", "pets", "golf", "baseball", "cycling", "tennis", "volleyball", "willing_experiment", "role_playing", "independent", "self_confident", "cultivated", "reliable", "spiritual", "username", "city", "description", "age", "marital_status", "open_anything", "height", "hair_color", "eye_color", "smoker", "anything_goes", "shy", "moody", "photos", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32, $33, $34, $35, $36, $37, $38) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.615663"], ["updated_at", "2019-12-12 13:25:57.615663"], ["gender", "Woman"], ["country", "USA"], ["hiking", "Hiking"], ["video_games", "Video games"], ["movies", "Movies / Cinema"], ["shopping", "Shopping / Antiques"], ["gardening", "Gardening / Landscaping"], ["pets", "Pets / Animals"], ["golf", "Golf"], ["baseball", "Baseball"], ["cycling", "Cycling"], ["tennis", "Tennis / Racquet sports"], ["volleyball", "Volleyball"], ["willing_experiment", "Willing to experiment"], ["role_playing", "Role playing"], ["independent", "Independent"], ["self_confident", "Self-confident"], ["cultivated", "Cultivated"], ["reliable", "Reliable"], ["spiritual", "Spiritual"], ["username", "winkmewise23"], ["city", "BROOKLYN"], ["description", "\" I am a very easy going and positive person, I live my life with a smile on my face and hope in my heart. I am sociable and attentive, I like to laugh and enjoy life. I am very curious about many thing, especially my hobbies. I am always self developing myself and try to find balance in everything. I love animals, especially cats. I love travelling and seeing new places. If I like something, I try to learn everything about it and make my knowledge deeper. I get along with all kinds of different people, I am very communicative. I never argue. I love to laugh and like to make sure that people around me are happy. I always find the time to enjoy life. I have a strong bond with my family and enjoy spending my free time with them. I have a great group of friends and I enjoy having dinner with them and chatting over cup of tea. \""], ["age", 41], ["marital_status", "Single"], ["open_anything", "Open to anything"], ["height", "5' 6''"], ["hair_color", "Blond"], ["eye_color", "Green"], ["smoker", "No"], ["anything_goes", "Anything goes"], ["shy", "Shy"], ["moody", "Moody"], ["photos", "{https://www.gleeden.com/book/f/577/WoTw98tN5fhQPDEevxoJ518d242118f55518d242118ffc/public/1593403462518d27db15cb1703200131.jpeg,https://www.gleeden.com/book/f/577/WoTw98tN5fhQPDEevxoJ518d242118f55518d242118ffc/public/376019473518d280b00ca0628890840.jpeg,https://www.gleeden.com/book/f/577/WoTw98tN5fhQPDEevxoJ518d242118f55518d242118ffc/public/1293190324518d2832c07bb314259338.jpeg,https://www.gleeden.com/book/f/577/WoTw98tN5fhQPDEevxoJ518d242118f55518d242118ffc/public/726866906518d2875c1314677509315.jpeg}"], ["ethnicity", "Caucasian"], ["figure", "Curvy"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.620906"], ["updated_at", "2019-12-12 13:25:57.620906"], ["gender", "Woman"], ["country", "USA"], ["username", "funnerd81"], ["city", "BROOKLYN"], ["age", 39], ["marital_status", "---"], ["height", "---"], ["hair_color", "---"], ["eye_color", "---"], ["smoker", "No"], ["ethnicity", "---"], ["figure", "---"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "arts", "pets", "aerobics", "soccer", "swimming", "cycling", "independent", "self_confident", "spiritual", "imaginative", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "active", "sociable", "fun", "generous", "relaxed", "sensitive", "photos", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.625571"], ["updated_at", "2019-12-12 13:25:57.625571"], ["gender", "Woman"], ["country", "USA"], ["arts", "Arts and crafts"], ["pets", "Pets / Animals"], ["aerobics", "Aerobics"], ["soccer", "Soccer / Football"], ["swimming", "Swimming or diving"], ["cycling", "Cycling"], ["independent", "Independent"], ["self_confident", "Self-confident"], ["spiritual", "Spiritual"], ["imaginative", "Imaginative"], ["username", "NaTaliaX"], ["city", "BROOKLYN"], ["age", 29], ["marital_status", "Single"], ["height", "5' 10''"], ["hair_color", "Brown"], ["eye_color", "Brown"], ["smoker", "No"], ["active", "Active"], ["sociable", "Sociable"], ["fun", "Fun"], ["generous", "Generous"], ["relaxed", "Relaxed"], ["sensitive", "Sensitive"], ["photos", "{https://www.gleeden.com/book/f/461/OGoH39YVORWkPBLlf7az4ca6958b600224ca6958b6005b/public/1447816834ca698326f57c992757266.jpeg,https://www.gleeden.com/book/f/461/OGoH39YVORWkPBLlf7az4ca6958b600224ca6958b6005b/public/20271239594ca7568aa5de8155989155.jpeg,https://www.gleeden.com/book/f/461/OGoH39YVORWkPBLlf7az4ca6958b600224ca6958b6005b/public/8706379184ca77529f37a7218464520.jpeg,https://www.gleeden.com/book/f/461/OGoH39YVORWkPBLlf7az4ca6958b600224ca6958b6005b/public/18130111144ca775e243e5c833848693.jpeg}"], ["ethnicity", "Hispanic"], ["figure", "Normal"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "arts", "aerobics", "username", "city", "description", "age", "marital_status", "anything_exciting", "open_anything", "short_term", "height", "hair_color", "eye_color", "smoker", "anything_goes", "active", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.630125"], ["updated_at", "2019-12-12 13:25:57.630125"], ["gender", "Woman"], ["country", "USA"], ["arts", "Arts and crafts"], ["aerobics", "Aerobics"], ["username", "coxy444"], ["city", "ALBANY"], ["description", "\" i am looking for love i am looking for love i am looking for love i am looking for love \""], ["age", 31], ["marital_status", "Single"], ["anything_exciting", "Anything exciting"], ["open_anything", "Open to anything"], ["short_term", "Short term"], ["height", "5' 7''"], ["hair_color", "Black"], ["eye_color", "Brown"], ["smoker", "No"], ["anything_goes", "Anything goes"], ["active", "Active"], ["ethnicity", "African"], ["figure", "Athletic"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "book", "dining_out", "charity", "coffee", "pets", "aerobics", "mature", "outgoing", "reliable", "imaginative", "username", "city", "age", "marital_status", "undecided", "height", "hair_color", "eye_color", "smoker", "sociable", "fun", "relaxed", "modest", "sensitive", "photos", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.635136"], ["updated_at", "2019-12-12 13:25:57.635136"], ["gender", "Woman"], ["country", "USA"], ["book", "Book or discussion clubs"], ["dining_out", "Dining out / Hosting diners"], ["charity", "Charities / Organisations"], ["coffee", "Coffee and conversation"], ["pets", "Pets / Animals"], ["aerobics", "Aerobics"], ["mature", "Mature"], ["outgoing", "Outgoing"], ["reliable", "Reliable"], ["imaginative", "Imaginative"], ["username", "thalassa5"], ["city", "ALBANY"], ["age", 45], ["marital_status", "Married"], ["undecided", "Undecided"], ["height", "5' 6''"], ["hair_color", "Brown"], ["eye_color", "Brown"], ["smoker", "No"], ["sociable", "Sociable"], ["fun", "Fun"], ["relaxed", "Relaxed"], ["modest", "Modest"], ["sensitive", "Sensitive"], ["photos", "{https://www.gleeden.com/book/f/550/p05e9NeBr9y1XpxveZ0E50ef3070a0a6b50ef3070a0a76/public/108445790350ef320ed3037016276976.jpeg}"], ["ethnicity", "Mixed race"], ["figure", "Normal"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "aerobics", "walking", "running", "independent", "cultivated", "imaginative", "username", "city", "age", "marital_status", "undecided", "height", "hair_color", "eye_color", "smoker", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.639898"], ["updated_at", "2019-12-12 13:25:57.639898"], ["gender", "Woman"], ["country", "USA"], ["aerobics", "Aerobics"], ["walking", "Walking / Hiking"], ["running", "Running / Cardio"], ["independent", "Independent"], ["cultivated", "Cultivated"], ["imaginative", "Imaginative"], ["username", "dgnyct"], ["city", "ALBANY"], ["age", 65], ["marital_status", "Married"], ["undecided", "Undecided"], ["height", "---"], ["hair_color", "Brown"], ["eye_color", "Blue"], ["smoker", "No"], ["ethnicity", "Caucasian"], ["figure", "Athletic"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.644292"], ["updated_at", "2019-12-12 13:25:57.644292"], ["gender", "Woman"], ["country", "USA"], ["username", "Evelinalove"], ["city", "ALBANY"], ["age", 35], ["marital_status", "Single"], ["height", "---"], ["hair_color", "---"], ["eye_color", "---"], ["smoker", "No"], ["ethnicity", "---"], ["figure", "---"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.649250"], ["updated_at", "2019-12-12 13:25:57.649250"], ["gender", "Woman"], ["country", "USA"], ["username", "Francesca454"], ["city", "ALBANY"], ["age", 29], ["marital_status", "---"], ["height", "---"], ["hair_color", "---"], ["eye_color", "---"], ["smoker", "No"], ["ethnicity", "---"], ["figure", "---"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "dining_out", "movies", "museum", "wine", "coffee", "pets", "aerobics", "walking", "swimming", "willing_experiment", "role_playing", "unusual_places", "independent", "mature", "self_confident", "cultivated", "reliable", "spiritual", "imaginative", "username", "city", "description", "age", "marital_status", "anything_exciting", "open_anything", "height", "hair_color", "eye_color", "smoker", "anything_goes", "dominated", "dominate", "active", "fun", "sensitive", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32, $33, $34, $35, $36, $37, $38, $39, $40, $41, $42) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.654728"], ["updated_at", "2019-12-12 13:25:57.654728"], ["gender", "Woman"], ["country", "USA"], ["dining_out", "Dining out / Hosting diners"], ["movies", "Movies / Cinema"], ["museum", "Museums / Galleries"], ["wine", "Wine or food tasting"], ["coffee", "Coffee and conversation"], ["pets", "Pets / Animals"], ["aerobics", "Aerobics"], ["walking", "Walking / Hiking"], ["swimming", "Swimming or diving"], ["willing_experiment", "Willing to experiment"], ["role_playing", "Role playing"], ["unusual_places", "Sex in unusual places"], ["independent", "Independent"], ["mature", "Mature"], ["self_confident", "Self-confident"], ["cultivated", "Cultivated"], ["reliable", "Reliable"], ["spiritual", "Spiritual"], ["imaginative", "Imaginative"], ["username", "Roseellen"], ["city", "HARTFORD"], ["description", "\" Seeking an intelligent and sophisticated partner-in-crime to participate in the thrill of loving and living life to the fullest. Must have a desire for deep erotic sensuality and not be afraid to indulge in a bit of kink here and there to spice things up. I am an established independent professional career woman, so getting to know you as a friend I can trust would be the first step. \""], ["age", 62], ["marital_status", "Married"], ["anything_exciting", "Anything exciting"], ["open_anything", "Open to anything"], ["height", "5' 5''"], ["hair_color", "Brown"], ["eye_color", "Brown"], ["smoker", "No"], ["anything_goes", "Anything goes"], ["dominated", "Being dominated"], ["dominate", "Dominating"], ["active", "Active"], ["fun", "Fun"], ["sensitive", "Sensitive"], ["ethnicity", "Caucasian"], ["figure", "Curvy"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "dining_out", "movies", "museum", "coffee", "walking", "swimming", "cycling", "running", "willing_experiment", "independent", "username", "city", "age", "marital_status", "anything_exciting", "open_anything", "height", "hair_color", "eye_color", "smoker", "anything_goes", "photos", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.660331"], ["updated_at", "2019-12-12 13:25:57.660331"], ["gender", "Woman"], ["country", "USA"], ["dining_out", "Dining out / Hosting diners"], ["movies", "Movies / Cinema"], ["museum", "Museums / Galleries"], ["coffee", "Coffee and conversation"], ["walking", "Walking / Hiking"], ["swimming", "Swimming or diving"], ["cycling", "Cycling"], ["running", "Running / Cardio"], ["willing_experiment", "Willing to experiment"], ["independent", "Independent"], ["username", "FranieNY"], ["city", "HARTFORD"], ["age", 33], ["marital_status", "Married"], ["anything_exciting", "Anything exciting"], ["open_anything", "Open to anything"], ["height", "5' 7''"], ["hair_color", "Brown"], ["eye_color", "Green"], ["smoker", "Yes"], ["anything_goes", "Anything goes"], ["photos", "{https://www.gleeden.com/book/f/827/K5CcloxUZUMkurDFd6Xe55d83ef098cbf55d83ef098cf6/public/80939395455d85107d088d246345551.jpeg,https://www.gleeden.com/book/f/827/K5CcloxUZUMkurDFd6Xe55d83ef098cbf55d83ef098cf6/public/161811451355d8519e41f21274454977.jpeg}"], ["ethnicity", "Caucasian"], ["figure", "Slim"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.665928"], ["updated_at", "2019-12-12 13:25:57.665928"], ["gender", "Woman"], ["country", "USA"], ["username", "annerice12345"], ["city", "HARTFORD"], ["age", 50], ["marital_status", "Married"], ["height", "5' 4''"], ["hair_color", "Blond"], ["eye_color", "Blue"], ["smoker", "No"], ["ethnicity", "Caucasian"], ["figure", "I'd rather not say"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "username", "city", "description", "age", "marital_status", "anything_exciting", "long_term", "open_anything", "short_term", "undecided", "virtual", "height", "hair_color", "eye_color", "smoker", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.671479"], ["updated_at", "2019-12-12 13:25:57.671479"], ["gender", "Woman"], ["country", "USA"], ["username", "Cosbyangel"], ["city", "HARTFORD"], ["description", "\" The quest for divorce have taken a lot off my life.I'm am looking to bring a little life back into my life. \""], ["age", 39], ["marital_status", "Divorced"], ["anything_exciting", "Anything exciting"], ["long_term", "Long term"], ["open_anything", "Open to anything"], ["short_term", "Short term"], ["undecided", "Undecided"], ["virtual", "Virtual"], ["height", "5' 0''"], ["hair_color", "Black"], ["eye_color", "Blue"], ["smoker", "No"], ["ethnicity", "Caucasian"], ["figure", "Curvy"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "martial_arts", "walking", "skiing", "self_confident", "cultivated", "imaginative", "sophisticated", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "active", "relaxed", "sensitive", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.676915"], ["updated_at", "2019-12-12 13:25:57.676915"], ["gender", "Woman"], ["country", "USA"], ["martial_arts", "Martial arts"], ["walking", "Walking / Hiking"], ["skiing", "Skiing / Snowboarding"], ["self_confident", "Self-confident"], ["cultivated", "Cultivated"], ["imaginative", "Imaginative"], ["sophisticated", "Sophisticated"], ["username", "Bekkette"], ["city", "NEWARK"], ["age", 48], ["marital_status", "Married"], ["height", "5' 2''"], ["hair_color", "Brown"], ["eye_color", "Green"], ["smoker", "No"], ["active", "Active"], ["relaxed", "Relaxed"], ["sensitive", "Sensitive"], ["ethnicity", "Caucasian"], ["figure", "Athletic"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "dining_out", "charity", "shopping", "wine", "pets", "walking", "running", "weight", "independent", "self_confident", "cultivated", "username", "city", "age", "marital_status", "open_anything", "height", "hair_color", "eye_color", "smoker", "secret", "active", "sociable", "fun", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.682478"], ["updated_at", "2019-12-12 13:25:57.682478"], ["gender", "Woman"], ["country", "USA"], ["dining_out", "Dining out / Hosting diners"], ["charity", "Charities / Organisations"], ["shopping", "Shopping / Antiques"], ["wine", "Wine or food tasting"], ["pets", "Pets / Animals"], ["walking", "Walking / Hiking"], ["running", "Running / Cardio"], ["weight", "Weights / Machines"], ["independent", "Independent"], ["self_confident", "Self-confident"], ["cultivated", "Cultivated"], ["username", "shami1015"], ["city", "NEWARK"], ["age", 47], ["marital_status", "Married"], ["open_anything", "Open to anything"], ["height", "5' 5''"], ["hair_color", "Red"], ["eye_color", "Green"], ["smoker", "No"], ["secret", "I'd rather not say, that's private"], ["active", "Active"], ["sociable", "Sociable"], ["fun", "Fun"], ["ethnicity", "Caucasian"], ["figure", "Slim"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.688226"], ["updated_at", "2019-12-12 13:25:57.688226"], ["gender", "Woman"], ["country", "USA"], ["username", "rosemary400"], ["city", "NEWARK"], ["age", 32], ["marital_status", "---"], ["height", "---"], ["hair_color", "---"], ["eye_color", "---"], ["smoker", "No"], ["ethnicity", "---"], ["figure", "---"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "photos", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.693098"], ["updated_at", "2019-12-12 13:25:57.693098"], ["gender", "Woman"], ["country", "USA"], ["username", "Victoria123"], ["city", "NEW HAVEN"], ["age", 32], ["marital_status", "---"], ["height", "---"], ["hair_color", "---"], ["eye_color", "---"], ["smoker", "No"], ["photos", "{https://www.gleeden.com/book/f/576/UIimfU8PrHXN6QN9nDRm519def9539004519def9539bd5/public/101938221451a05d0f51dbf253525549.jpeg}"], ["ethnicity", "---"], ["figure", "---"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "cooking", "shopping", "wine", "coffee", "running", "weight", "willing_experiment", "independent", "mature", "cultivated", "reliable", "imaginative", "username", "city", "age", "marital_status", "anything_exciting", "open_anything", "undecided", "height", "hair_color", "eye_color", "smoker", "dominated", "dominate", "threesome", "active", "fun", "relaxed", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32, $33, $34, $35) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.697460"], ["updated_at", "2019-12-12 13:25:57.697460"], ["gender", "Woman"], ["country", "USA"], ["cooking", "Cooking / Baking"], ["shopping", "Shopping / Antiques"], ["wine", "Wine or food tasting"], ["coffee", "Coffee and conversation"], ["running", "Running / Cardio"], ["weight", "Weights / Machines"], ["willing_experiment", "Willing to experiment"], ["independent", "Independent"], ["mature", "Mature"], ["cultivated", "Cultivated"], ["reliable", "Reliable"], ["imaginative", "Imaginative"], ["username", "JulyMarch"], ["city", "NEW HAVEN"], ["age", 51], ["marital_status", "Married"], ["anything_exciting", "Anything exciting"], ["open_anything", "Open to anything"], ["undecided", "Undecided"], ["height", "---"], ["hair_color", "Black"], ["eye_color", "Black"], ["smoker", "No"], ["dominated", "Being dominated"], ["dominate", "Dominating"], ["threesome", "Threesome (or more)"], ["active", "Active"], ["fun", "Fun"], ["relaxed", "Relaxed"], ["ethnicity", "---"], ["figure", "Curvy"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "username", "city", "description", "age", "marital_status", "open_anything", "height", "hair_color", "eye_color", "smoker", "fun", "moody", "sensitive", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.704479"], ["updated_at", "2019-12-12 13:25:57.704479"], ["gender", "Woman"], ["country", "USA"], ["username", "kathyp9237"], ["city", "NEW HAVEN"], ["description", "\" I am just looking for a normal sane person for drinks, conversations, and maybe sex a couple of times a month. \""], ["age", 44], ["marital_status", "Married"], ["open_anything", "Open to anything"], ["height", "5' 3''"], ["hair_color", "Brown"], ["eye_color", "Black"], ["smoker", "No"], ["fun", "Fun"], ["moody", "Moody"], ["sensitive", "Sensitive"], ["ethnicity", "Indian"], ["figure", "Slim"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "username", "city", "age", "marital_status", "anything_exciting", "height", "hair_color", "eye_color", "smoker", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.710691"], ["updated_at", "2019-12-12 13:25:57.710691"], ["gender", "Woman"], ["country", "USA"], ["username", "butterface"], ["city", "TRENTON"], ["age", 64], ["marital_status", "Married"], ["anything_exciting", "Anything exciting"], ["height", "5' 6''"], ["hair_color", "Brown"], ["eye_color", "Green"], ["smoker", "No"], ["ethnicity", "Caucasian"], ["figure", "Curvy"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "being_blinded", "willing_experiment", "unusual_places", "independent", "self_confident", "cultivated", "spiritual", "imaginative", "sophisticated", "username", "city", "description", "age", "marital_status", "anything_exciting", "long_term", "height", "hair_color", "eye_color", "smoker", "anything_goes", "dominated", "dominate", "generous", "relaxed", "sensitive", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.716157"], ["updated_at", "2019-12-12 13:25:57.716157"], ["gender", "Woman"], ["country", "USA"], ["being_blinded", "Being blind folded"], ["willing_experiment", "Willing to experiment"], ["unusual_places", "Sex in unusual places"], ["independent", "Independent"], ["self_confident", "Self-confident"], ["cultivated", "Cultivated"], ["spiritual", "Spiritual"], ["imaginative", "Imaginative"], ["sophisticated", "Sophisticated"], ["username", "RoseEl"], ["city", "TRENTON"], ["description", "\" Hi all on this site looking for whatever you are hoping to find. Myself I want passion and excitement in my life. My marriage is beyond stale. I want to fall in love like I am in my twenties and go crazy for each other.I love men as hangout buddies and best friends. I'm looking for a man who is more dominant sexually and will take charge in the bedroom. I am good at taking charge outside of the bedroom. I have a naturally lively and fun personality. I need high intelligence and good to great communication skills for compatibility. I love hot sex and haven't had that in years. \""], ["age", 62], ["marital_status", "Separated"], ["anything_exciting", "Anything exciting"], ["long_term", "Long term"], ["height", "5' 5''"], ["hair_color", "Blond"], ["eye_color", "Brown"], ["smoker", "No"], ["anything_goes", "Anything goes"], ["dominated", "Being dominated"], ["dominate", "Dominating"], ["generous", "Generous"], ["relaxed", "Relaxed"], ["sensitive", "Sensitive"], ["ethnicity", "Caucasian"], ["figure", "Normal"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "arts", "cooking", "hiking", "aerobics", "walking", "skiing", "willing_experiment", "independent", "outgoing", "self_confident", "reliable", "username", "city", "age", "marital_status", "long_term", "height", "hair_color", "eye_color", "smoker", "active", "generous", "modest", "photos", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.721876"], ["updated_at", "2019-12-12 13:25:57.721876"], ["gender", "Woman"], ["country", "USA"], ["arts", "Arts and crafts"], ["cooking", "Cooking / Baking"], ["hiking", "Hiking"], ["aerobics", "Aerobics"], ["walking", "Walking / Hiking"], ["skiing", "Skiing / Snowboarding"], ["willing_experiment", "Willing to experiment"], ["independent", "Independent"], ["outgoing", "Outgoing"], ["self_confident", "Self-confident"], ["reliable", "Reliable"], ["username", "juicycindy"], ["city", "TRENTON"], ["age", 42], ["marital_status", "Single"], ["long_term", "Long term"], ["height", "---"], ["hair_color", "Black"], ["eye_color", "Blue"], ["smoker", "No"], ["active", "Active"], ["generous", "Generous"], ["modest", "Modest"], ["photos", "{https://www.gleeden.com/book/f/904/N4uGd4FTGi5dTDuXzHFC542677ab6c158542677ab6c192/public/117922358654267bd5e5dc3312679127.jpeg,https://www.gleeden.com/book/f/904/N4uGd4FTGi5dTDuXzHFC542677ab6c158542677ab6c192/public/61078219354267c3f2dab8030571263.jpeg}"], ["ethnicity", "---"], ["figure", "Normal"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "arts", "cooking", "dining_out", "museum", "shopping", "swimming", "skiing", "sophisticated", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "active", "generous", "relaxed", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.726309"], ["updated_at", "2019-12-12 13:25:57.726309"], ["gender", "Woman"], ["country", "USA"], ["arts", "Arts and crafts"], ["cooking", "Cooking / Baking"], ["dining_out", "Dining out / Hosting diners"], ["museum", "Museums / Galleries"], ["shopping", "Shopping / Antiques"], ["swimming", "Swimming or diving"], ["skiing", "Skiing / Snowboarding"], ["sophisticated", "Sophisticated"], ["username", "SSS244"], ["city", "WILMINGTON"], ["age", 49], ["marital_status", "Cohabitating"], ["height", "5' 3''"], ["hair_color", "Black"], ["eye_color", "Black"], ["smoker", "No"], ["active", "Active"], ["generous", "Generous"], ["relaxed", "Relaxed"], ["ethnicity", "Asian"], ["figure", "Curvy"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "arts", "cooking", "hiking", "networking", "dining_out", "movies", "nightclubs", "museum", "shopping", "wine", "pets", "username", "city", "age", "marital_status", "open_anything", "height", "hair_color", "eye_color", "smoker", "anything_goes", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.730816"], ["updated_at", "2019-12-12 13:25:57.730816"], ["gender", "Woman"], ["country", "USA"], ["arts", "Arts and crafts"], ["cooking", "Cooking / Baking"], ["hiking", "Hiking"], ["networking", "Networking / Socialising"], ["dining_out", "Dining out / Hosting diners"], ["movies", "Movies / Cinema"], ["nightclubs", "Nightclubs / Dancing"], ["museum", "Museums / Galleries"], ["shopping", "Shopping / Antiques"], ["wine", "Wine or food tasting"], ["pets", "Pets / Animals"], ["username", "brunettebae10"], ["city", "WILMINGTON"], ["age", 35], ["marital_status", "Single"], ["open_anything", "Open to anything"], ["height", "5' 6''"], ["hair_color", "Blond"], ["eye_color", "Black"], ["smoker", "No"], ["anything_goes", "Anything goes"], ["ethnicity", "Caucasian"], ["figure", "Athletic"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.735126"], ["updated_at", "2019-12-12 13:25:57.735126"], ["gender", "Woman"], ["country", "USA"], ["username", "Ana666"], ["city", "BRONX"], ["age", 34], ["marital_status", "---"], ["height", "---"], ["hair_color", "---"], ["eye_color", "---"], ["smoker", "No"], ["ethnicity", "---"], ["figure", "---"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "arts", "movies", "museum", "wine", "coffee", "willing_experiment", "independent", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "active", "relaxed", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.739223"], ["updated_at", "2019-12-12 13:25:57.739223"], ["gender", "Woman"], ["country", "USA"], ["arts", "Arts and crafts"], ["movies", "Movies / Cinema"], ["museum", "Museums / Galleries"], ["wine", "Wine or food tasting"], ["coffee", "Coffee and conversation"], ["willing_experiment", "Willing to experiment"], ["independent", "Independent"], ["username", "imaginelle"], ["city", "BRONX"], ["age", 39], ["marital_status", "---"], ["height", "---"], ["hair_color", "---"], ["eye_color", "---"], ["smoker", "No"], ["active", "Active"], ["relaxed", "Relaxed"], ["ethnicity", "---"], ["figure", "---"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.743635"], ["updated_at", "2019-12-12 13:25:57.743635"], ["gender", "Woman"], ["country", "USA"], ["username", "COURE10"], ["city", "SPRINGFIELD"], ["age", 30], ["marital_status", "---"], ["height", "---"], ["hair_color", "---"], ["eye_color", "---"], ["smoker", "No"], ["ethnicity", "---"], ["figure", "---"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.750092"], ["updated_at", "2019-12-12 13:25:57.750092"], ["gender", "Woman"], ["country", "USA"], ["username", "Julianav"], ["city", "SPRINGFIELD"], ["age", 42], ["marital_status", "---"], ["height", "---"], ["hair_color", "---"], ["eye_color", "---"], ["smoker", "No"], ["ethnicity", "---"], ["figure", "---"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "photos", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.755367"], ["updated_at", "2019-12-12 13:25:57.755367"], ["gender", "Woman"], ["country", "USA"], ["username", "audreykitch01"], ["city", "WATERBURY"], ["age", 34], ["marital_status", "---"], ["height", "---"], ["hair_color", "---"], ["eye_color", "---"], ["smoker", "No"], ["photos", "{https://www.gleeden.com/book/f/063/gl2mniHk1ooquVknBZLX55e4a1e32d4fd55e4a1e32d565/public/146387300455e4a2de69a25964710102.jpeg}"], ["ethnicity", "---"], ["figure", "---"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "networking", "book", "dining_out", "museum", "gardening", "cycling", "role_playing", "independent", "mature", "outgoing", "cultivated", "imaginative", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "threesome", "secret", "active", "fun", "generous", "modest", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.759865"], ["updated_at", "2019-12-12 13:25:57.759865"], ["gender", "Woman"], ["country", "USA"], ["networking", "Networking / Socialising"], ["book", "Book or discussion clubs"], ["dining_out", "Dining out / Hosting diners"], ["museum", "Museums / Galleries"], ["gardening", "Gardening / Landscaping"], ["cycling", "Cycling"], ["role_playing", "Role playing"], ["independent", "Independent"], ["mature", "Mature"], ["outgoing", "Outgoing"], ["cultivated", "Cultivated"], ["imaginative", "Imaginative"], ["username", "Roseey"], ["city", "STAMFORD"], ["age", 39], ["marital_status", "Single"], ["height", "---"], ["hair_color", "---"], ["eye_color", "---"], ["smoker", "No"], ["threesome", "Threesome (or more)"], ["secret", "I'd rather not say, that's private"], ["active", "Active"], ["fun", "Fun"], ["generous", "Generous"], ["modest", "Modest"], ["ethnicity", "---"], ["figure", "---"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "cooking", "shopping", "golf", "basketball", "username", "city", "description", "age", "marital_status", "anything_exciting", "open_anything", "undecided", "height", "hair_color", "eye_color", "smoker", "anything_goes", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.764581"], ["updated_at", "2019-12-12 13:25:57.764581"], ["gender", "Woman"], ["country", "USA"], ["cooking", "Cooking / Baking"], ["shopping", "Shopping / Antiques"], ["golf", "Golf"], ["basketball", "Basketball"], ["username", "Linda662"], ["city", "WILKES BARRE"], ["description", "\" It is always difficult to describe yourself. I think that my numerous friends would do it better. My friends say that I am very merry, very sincere, very honest, very responsive according to their opinion. I try to do all my best for the people I love. I am very romantic person. I wait your letter. \""], ["age", 32], ["marital_status", "Single"], ["anything_exciting", "Anything exciting"], ["open_anything", "Open to anything"], ["undecided", "Undecided"], ["height", "5' 6''"], ["hair_color", "Black"], ["eye_color", "Brown"], ["smoker", "No"], ["anything_goes", "Anything goes"], ["ethnicity", "African"], ["figure", "Slim"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "hiking", "movies", "charity", "museum", "wine", "gardening", "soccer", "walking", "baseball", "basketball", "volleyball", "independent", "mature", "self_confident", "imaginative", "sophisticated", "username", "city", "age", "marital_status", "anything_exciting", "height", "hair_color", "eye_color", "smoker", "active", "sociable", "fun", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32, $33, $34) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.769082"], ["updated_at", "2019-12-12 13:25:57.769082"], ["gender", "Woman"], ["country", "USA"], ["hiking", "Hiking"], ["movies", "Movies / Cinema"], ["charity", "Charities / Organisations"], ["museum", "Museums / Galleries"], ["wine", "Wine or food tasting"], ["gardening", "Gardening / Landscaping"], ["soccer", "Soccer / Football"], ["walking", "Walking / Hiking"], ["baseball", "Baseball"], ["basketball", "Basketball"], ["volleyball", "Volleyball"], ["independent", "Independent"], ["mature", "Mature"], ["self_confident", "Self-confident"], ["imaginative", "Imaginative"], ["sophisticated", "Sophisticated"], ["username", "amber227"], ["city", "STATEN ISLAND"], ["age", 40], ["marital_status", "Married"], ["anything_exciting", "Anything exciting"], ["height", "5' 4''"], ["hair_color", "Blond"], ["eye_color", "Brown"], ["smoker", "No"], ["active", "Active"], ["sociable", "Sociable"], ["fun", "Fun"], ["ethnicity", "---"], ["figure", "---"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.773801"], ["updated_at", "2019-12-12 13:25:57.773801"], ["gender", "Woman"], ["country", "USA"], ["username", "labelladiva18"], ["city", "PATERSON"], ["age", 31], ["marital_status", "---"], ["height", "---"], ["hair_color", "---"], ["eye_color", "---"], ["smoker", "No"], ["ethnicity", "---"], ["figure", "---"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.778968"], ["updated_at", "2019-12-12 13:25:57.778968"], ["gender", "Woman"], ["country", "USA"], ["username", "claudia5864"], ["city", "SCRANTON"], ["age", 48], ["marital_status", "---"], ["height", "---"], ["hair_color", "---"], ["eye_color", "---"], ["smoker", "No"], ["ethnicity", "---"], ["figure", "---"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "cooking", "networking", "dining_out", "movies", "nightclubs", "charity", "museum", "shopping", "wine", "coffee", "walking", "running", "skiing", "independent", "mature", "self_confident", "cultivated", "reliable", "imaginative", "sophisticated", "username", "city", "age", "marital_status", "open_anything", "height", "hair_color", "eye_color", "smoker", "active", "sociable", "fun", "generous", "relaxed", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32, $33, $34, $35, $36, $37, $38, $39, $40) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.783624"], ["updated_at", "2019-12-12 13:25:57.783624"], ["gender", "Woman"], ["country", "USA"], ["cooking", "Cooking / Baking"], ["networking", "Networking / Socialising"], ["dining_out", "Dining out / Hosting diners"], ["movies", "Movies / Cinema"], ["nightclubs", "Nightclubs / Dancing"], ["charity", "Charities / Organisations"], ["museum", "Museums / Galleries"], ["shopping", "Shopping / Antiques"], ["wine", "Wine or food tasting"], ["coffee", "Coffee and conversation"], ["walking", "Walking / Hiking"], ["running", "Running / Cardio"], ["skiing", "Skiing / Snowboarding"], ["independent", "Independent"], ["mature", "Mature"], ["self_confident", "Self-confident"], ["cultivated", "Cultivated"], ["reliable", "Reliable"], ["imaginative", "Imaginative"], ["sophisticated", "Sophisticated"], ["username", "Youonlygetone"], ["city", "JAMAICA"], ["age", 41], ["marital_status", "Married"], ["open_anything", "Open to anything"], ["height", "5' 8''"], ["hair_color", "Black"], ["eye_color", "---"], ["smoker", "No"], ["active", "Active"], ["sociable", "Sociable"], ["fun", "Fun"], ["generous", "Generous"], ["relaxed", "Relaxed"], ["ethnicity", "Mixed race"], ["figure", "Normal"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.788960"], ["updated_at", "2019-12-12 13:25:57.788960"], ["gender", "Woman"], ["country", "USA"], ["username", "Lydie2"], ["city", "LANCASTER"], ["age", 31], ["marital_status", "---"], ["height", "---"], ["hair_color", "---"], ["eye_color", "---"], ["smoker", "No"], ["ethnicity", "---"], ["figure", "---"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "cooking", "networking", "video_games", "movies", "religion", "pets", "golf", "soccer", "swimming", "baseball", "basketball", "volleyball", "independent", "self_confident", "reliable", "username", "city", "description", "age", "marital_status", "anything_exciting", "open_anything", "short_term", "height", "hair_color", "eye_color", "smoker", "active", "sociable", "fun", "generous", "photos", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32, $33, $34, $35, $36, $37, $38) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.793200"], ["updated_at", "2019-12-12 13:25:57.793200"], ["gender", "Woman"], ["country", "USA"], ["cooking", "Cooking / Baking"], ["networking", "Networking / Socialising"], ["video_games", "Video games"], ["movies", "Movies / Cinema"], ["religion", "Religion / Spirituality"], ["pets", "Pets / Animals"], ["golf", "Golf"], ["soccer", "Soccer / Football"], ["swimming", "Swimming or diving"], ["baseball", "Baseball"], ["basketball", "Basketball"], ["volleyball", "Volleyball"], ["independent", "Independent"], ["self_confident", "Self-confident"], ["reliable", "Reliable"], ["username", "kattybr"], ["city", "READING"], ["description", "\" I am Kate Brown , i am 26 years , i am looking for my soul mate .. \""], ["age", 32], ["marital_status", "Single"], ["anything_exciting", "Anything exciting"], ["open_anything", "Open to anything"], ["short_term", "Short term"], ["height", "5' 6''"], ["hair_color", "Black"], ["eye_color", "Black"], ["smoker", "No"], ["active", "Active"], ["sociable", "Sociable"], ["fun", "Fun"], ["generous", "Generous"], ["photos", "{https://www.gleeden.com/book/f/709/WLE3gtnVhKa0XlEcaycj529222770a2b1529222770a2e9/public/1490981395292285613954277949168.jpeg,https://www.gleeden.com/book/f/709/WLE3gtnVhKa0XlEcaycj529222770a2b1529222770a2e9/public/26126563529228d80371f374127200.jpeg,https://www.gleeden.com/book/f/709/WLE3gtnVhKa0XlEcaycj529222770a2b1529222770a2e9/public/209094119852922c8b0fb50365132014.jpeg}"], ["ethnicity", "Caucasian"], ["figure", "Athletic"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.798138"], ["updated_at", "2019-12-12 13:25:57.798138"], ["gender", "Woman"], ["country", "USA"], ["username", "FrenchWomanNY"], ["city", "BRIDGEPORT"], ["age", 41], ["marital_status", "---"], ["height", "---"], ["hair_color", "---"], ["eye_color", "---"], ["smoker", "No"], ["ethnicity", "---"], ["figure", "---"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.802604"], ["updated_at", "2019-12-12 13:25:57.802604"], ["gender", "Woman"], ["country", "USA"], ["username", "Connexion105"], ["city", "JERSEY CITY"], ["age", 49], ["marital_status", "---"], ["height", "---"], ["hair_color", "---"], ["eye_color", "---"], ["smoker", "No"], ["ethnicity", "---"], ["figure", "---"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "cooking", "dining_out", "movies", "nightclubs", "shopping", "wine", "coffee", "pets", "aerobics", "walking", "swimming", "volleyball", "being_blinded", "willing_experiment", "costume", "role_playing", "using_sex_toys", "unusual_places", "being_watched", "independent", "self_confident", "cultivated", "reliable", "imaginative", "username", "city", "description", "age", "marital_status", "anything_exciting", "open_anything", "undecided", "virtual", "height", "hair_color", "eye_color", "smoker", "anything_goes", "dominated", "dominate", "normal", "threesome", "secret", "active", "fun", "generous", "relaxed", "photos", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32, $33, $34, $35, $36, $37, $38, $39, $40, $41, $42, $43, $44, $45, $46, $47, $48, $49, $50, $51, $52, $53, $54) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.807886"], ["updated_at", "2019-12-12 13:25:57.807886"], ["gender", "Woman"], ["country", "USA"], ["cooking", "Cooking / Baking"], ["dining_out", "Dining out / Hosting diners"], ["movies", "Movies / Cinema"], ["nightclubs", "Nightclubs / Dancing"], ["shopping", "Shopping / Antiques"], ["wine", "Wine or food tasting"], ["coffee", "Coffee and conversation"], ["pets", "Pets / Animals"], ["aerobics", "Aerobics"], ["walking", "Walking / Hiking"], ["swimming", "Swimming or diving"], ["volleyball", "Volleyball"], ["being_blinded", "Being blind folded"], ["willing_experiment", "Willing to experiment"], ["costume", "Costumes"], ["role_playing", "Role playing"], ["using_sex_toys", "Using sex toys"], ["unusual_places", "Sex in unusual places"], ["being_watched", "Being watched"], ["independent", "Independent"], ["self_confident", "Self-confident"], ["cultivated", "Cultivated"], ["reliable", "Reliable"], ["imaginative", "Imaginative"], ["username", "angelwings12"], ["city", "SCHENECTADY"], ["description", "\" Best and most wonderful things in world cannot be seen or touched...but can to felt in heart. Love is most wonderful feeling in world! I have lots of love in my heart and I want to share this love with beloved Man.\nI am lover of life! I like beauty of nature, sea, mountains, sun, sand, sunrises and sunsets, magic stars, walks under rain, rainbow, feel smell of rain, lay on grass, feel wind. I am fond of sport and especially I like swimming and fitness. I enjoy romantic walks on beach, candle light dinners, love to travel very much and spend time on nature. I just like to have fun and want to share this wonderful world with lover man. \""], ["age", 31], ["marital_status", "Single"], ["anything_exciting", "Anything exciting"], ["open_anything", "Open to anything"], ["undecided", "Undecided"], ["virtual", "Virtual"], ["height", "5' 6''"], ["hair_color", "Blond"], ["eye_color", "Brown"], ["smoker", "No"], ["anything_goes", "Anything goes"], ["dominated", "Being dominated"], ["dominate", "Dominating"], ["normal", "Conventional sex only"], ["threesome", "Threesome (or more)"], ["secret", "I'd rather not say, that's private"], ["active", "Active"], ["fun", "Fun"], ["generous", "Generous"], ["relaxed", "Relaxed"], ["photos", "{https://www.gleeden.com/book/f/414/Yj4I15OhkncOIvV2JDJn55fab65f6b88255fab65f6b930/public/211304285655fab6ded9f43913623044.jpeg}"], ["ethnicity", "Caucasian"], ["figure", "Curvy"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "book", "movies", "museum", "shopping", "wine", "walking", "tennis", "skiing", "costume", "role_playing", "cultivated", "username", "city", "age", "marital_status", "undecided", "height", "hair_color", "eye_color", "smoker", "dominated", "active", "generous", "sensitive", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.814316"], ["updated_at", "2019-12-12 13:25:57.814316"], ["gender", "Woman"], ["country", "USA"], ["book", "Book or discussion clubs"], ["movies", "Movies / Cinema"], ["museum", "Museums / Galleries"], ["shopping", "Shopping / Antiques"], ["wine", "Wine or food tasting"], ["walking", "Walking / Hiking"], ["tennis", "Tennis / Racquet sports"], ["skiing", "Skiing / Snowboarding"], ["costume", "Costumes"], ["role_playing", "Role playing"], ["cultivated", "Cultivated"], ["username", "LilyL"], ["city", "NORWALK"], ["age", 51], ["marital_status", "Married"], ["undecided", "Undecided"], ["height", "5' 2''"], ["hair_color", "Brown"], ["eye_color", "Blue"], ["smoker", "No"], ["dominated", "Being dominated"], ["active", "Active"], ["generous", "Generous"], ["sensitive", "Sensitive"], ["ethnicity", "Caucasian"], ["figure", "Curvy"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "temporary_lists" ("created_at", "updated_at", "gender", "country", "username", "city", "age", "marital_status", "height", "hair_color", "eye_color", "smoker", "ethnicity", "figure") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["created_at", "2019-12-12 13:25:57.819973"], ["updated_at", "2019-12-12 13:25:57.819973"], ["gender", "Woman"], ["country", "USA"], ["username", "JIllD1"], ["city", "ALLENTOWN"], ["age", 32], ["marital_status", "---"], ["height", "---"], ["hair_color", "---"], ["eye_color", "---"], ["smoker", "No"], ["ethnicity", "---"], ["figure", "---"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTemporaryList Load (1.0ms)[0m  [1m[34mSELECT "temporary_lists".* FROM "temporary_lists"[0m
+  [1m[36mTemporaryList Load (0.8ms)[0m  [1m[34mSELECT "temporary_lists".* FROM "temporary_lists"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 2]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 3]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 4]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 5]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 6]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 7]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 8]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 9]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 10]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 11]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 12]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 13]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 14]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 15]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 16]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 17]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 18]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 19]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 20]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 21]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 22]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 23]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 24]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 25]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 26]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 27]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 28]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 29]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 30]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 31]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 52]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 32]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 33]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 34]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 35]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 36]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 37]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 38]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 39]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 40]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 41]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 42]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 43]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 44]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 45]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 46]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 47]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 48]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 49]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 50]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 51]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 53]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 54]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 55]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 56]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 57]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 58]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 59]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 60]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 61]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 62]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 63]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 64]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 65]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 66]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 67]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 68]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "temporary_lists" WHERE "temporary_lists"."id" = $1[0m  [["id", 69]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 3479ms (Views: 73.5ms | ActiveRecord: 241.6ms)
+
+
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mTemporaryList Load (1.5ms)[0m  [1m[34mSELECT  "temporary_lists".* FROM "temporary_lists" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7523680634770071135)[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddPhotoToUsers (20200103125343)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.8ms)[0m  [1m[35mALTER TABLE "users" ADD "photo" character varying[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200103125343"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(7523680634770071135)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "angelwings12"], ["LIMIT", 1]]
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "bavronface"], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "bavronfaith"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "bavronfaith"], ["LIMIT", 1]]
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 70]]
+  [1m[35m (7.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 65]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 66]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 71]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 68]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 67]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 63]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 103]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 110]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 104]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 106]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 105]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 107]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 69]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 64]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 108]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 109]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 156]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 157]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 158]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 159]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 160]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 161]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 162]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 188]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 72]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 73]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 111]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 180]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 74]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 75]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 115]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 116]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 117]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 112]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 118]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 119]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 120]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 121]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 122]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 113]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 114]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 163]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 164]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 183]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 184]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 181]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 182]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 190]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 189]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 191]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 192]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 193]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 76]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 47]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 77]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 51]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 80]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 79]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 81]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 78]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 194]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 195]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 231]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 232]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 233]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 234]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 45]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 46]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 49]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 43]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 50]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 52]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 82]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 53]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 48]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 83]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 44]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 131]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 132]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 54]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 133]]
+  [1m[35m (4.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 134]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 135]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 136]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 58]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 165]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 55]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 61]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 56]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 59]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 60]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 57]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 137]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 62]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 138]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 205]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 139]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 200]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 201]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 202]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 203]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 204]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 206]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 207]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 208]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 209]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 90]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 147]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 141]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 92]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 93]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 140]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 91]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 142]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 143]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 144]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 145]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 166]]
+  [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 167]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 168]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 146]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 170]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 169]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 171]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 172]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 173]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 174]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 175]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 84]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 85]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 86]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 87]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 100]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 88]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 89]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 101]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 94]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 98]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 95]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 97]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 99]]
+  [1m[35m (5.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 96]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 148]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 102]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 176]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 235]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 236]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 151]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 149]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 150]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 152]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 179]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 153]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 237]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 154]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 155]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 177]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 178]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 127]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 123]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (5.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 128]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 129]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 130]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 124]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 125]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 126]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 185]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 186]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 187]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 240]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 238]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 210]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 211]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 212]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 239]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 221]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 219]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 216]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 217]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 218]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 220]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 224]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 222]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 213]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 214]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 215]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 223]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 230]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 229]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 226]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 227]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 228]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 225]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 196]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 199]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 197]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 198]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE ("users"."photos" IS NOT NULL)[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
